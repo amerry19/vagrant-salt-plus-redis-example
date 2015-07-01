@@ -4,7 +4,8 @@ vagrant-salt-example
 Because the [documentation](https://docs.vagrantup.com/v2/provisioning/salt.html) 
 for using [Vagrant](https://www.vagrantup.com/) & SaltStack's [Salt](http://www.saltstack.com/)
 assumes some basic knowledge of how Salt works, this repository is to show the 
-most basic setup for using Vagrant & Salt.
+most basic setup for using Vagrant & Salt. Plus, it leverages [the Salt formula for redis](https://github.com/saltstack-formulas/redis-formula) to
+install an instance of redis.
 
 You can just copy the files and get started, or you can read below for a little
 explination of how & why it has been setup the way it has.
