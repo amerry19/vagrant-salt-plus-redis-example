@@ -8,6 +8,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Vagrant Box
   config.vm.box = "precise64"
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+  config.vm.network "forwarded_port", guest: 6379, host: 6380
+
 
   # Salt Provisioner
   config.vm.provision :salt do |salt|
