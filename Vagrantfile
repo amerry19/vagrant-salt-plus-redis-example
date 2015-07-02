@@ -4,6 +4,11 @@
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
+$script = <<SCRIPT
+sed -i -e 's/bind 127.0.0.1/bind 0.0.0.0/' /etc/redis/redis.conf
+if [ $? -eq 0 ]; then service redis-server restart; fi
+SCRIPT
+
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Vagrant Box
   config.vm.box = "precise64"
@@ -35,4 +40,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # work well you can comment this line out.
     salt.verbose = true
   end
+
+  config.vm.provision "shell", inline: $script
 end
